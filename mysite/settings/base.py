@@ -58,10 +58,15 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.security.SecurityMiddleware',
 
+    'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'wagtail.core.middleware.SiteMiddleware',
     'wagtail.contrib.redirects.middleware.RedirectMiddleware',
+    # Whitenoise middleware is used to server static files (CSS, JS, etc.).
+    # According to the official documentation it should be listed underneath
+    # SecurityMiddleware.
+    # http://whitenoise.evans.io/en/stable/#quickstart-for-django-apps
 ]
 
 ROOT_URLCONF = 'mysite.urls'
