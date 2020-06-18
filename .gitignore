@@ -9,7 +9,7 @@
 /docs/_build/
 /.tox/
 /venv
-env
+envbutterfly
 /node_modules/
 npm-debug.log*
 *.idea/

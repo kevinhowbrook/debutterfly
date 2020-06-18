@@ -43,3 +43,13 @@ class BlogPage(Page):
         FieldPanel('intro'),
         StreamFieldPanel('body'),
     ]
+
+def get_context(self, request, *args, **kwargs):
+    context = super(BlogPage, self).get_context(request, *args, **kwargs)
+    context['posts'] = self.posts
+    context['blog_page'] = self
+
+    context['menuitems'] = self.get_children().filter(
+        live=True, show_in_menus=True)
+
+    return context
