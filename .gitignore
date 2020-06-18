@@ -9,7 +9,7 @@
 /docs/_build/
 /.tox/
 /venv
-envbutterfly
+/envbutterfly
 env
 /node_modules/
 npm-debug.log*
