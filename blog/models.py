@@ -1,10 +1,9 @@
 from django.db import models
+
 from wagtail.core.models import Page
-from wagtail.core.fields import RichTextField, StreamField
-from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
+from wagtail.core.fields import RichTextField
+from wagtail.admin.edit_handlers import FieldPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
-from wagtail.core import blocks
-from wagtail.embeds.blocks import EmbedBlock
 
 
 class BlogIndexPage(Page):
@@ -31,25 +30,11 @@ class BlogPage(Page):
         on_delete=models.SET_NULL
     )
     intro = models.CharField(max_length=250)
-    body = StreamField([
-    ('heading', blocks.CharBlock(classname="full title", icon="title")),
-    ('paragraph', blocks.RichTextBlock(icon="pilcrow")),
-    ('embed', EmbedBlock(icon="media")),
-])
+    body = RichTextField(blank=True)
     
     content_panels = Page.content_panels + [
         FieldPanel('date'),
         ImageChooserPanel('image'),
         FieldPanel('intro'),
-        StreamFieldPanel('body'),
+        FieldPanel('body', classname="full"),
     ]
-
-def get_context(self, request, *args, **kwargs):
-    context = super(BlogPage, self).get_context(request, *args, **kwargs)
-    context['posts'] = self.posts
-    context['blog_page'] = self
-
-    context['menuitems'] = self.get_children().filter(
-        live=True, show_in_menus=True)
-
-    return context
