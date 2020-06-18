@@ -9,10 +9,10 @@ class HomePage(Page):
 
     templates = "home/home_page.html"
 
-    banner_title = models.CharField(max_length=10, blank=False, null=True)
+    banner_title = models.CharField(max_length=100, blank=False, null=True)
     banner_subtitle = RichTextField(features=["bold", "italic"])
     banner_image = models.ForeignKey(
-        "wagtailimages.Image",
+        "wagtailimages.Image", 
         null=True,
         blank=False,
         on_delete=models.SET_NULL,
