@@ -21,7 +21,6 @@ class BlogIndexPage(Page):
         context['blogpages'] = live_blogpages.order_by('-first_published_at')
         return context
     
-
 class BlogPage(Page):
     date = models.DateField("Post date")
     image = models.ForeignKey(
