@@ -2,7 +2,6 @@
 
 from wagtail.core import blocks
 
-
 class TitleAndTextBlock(blocks.StructBlock):
     """Title and text and nothing else."""
 

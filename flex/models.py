@@ -3,6 +3,10 @@ from django.db import models
 from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
 from wagtail.core.models import Page
 from wagtail.core.fields import StreamField
+from wagtail.embeds.blocks import EmbedBlock
+from wagtail.embeds.finders.base import EmbedFinder
+from wagtail.core.blocks import RawHTMLBlock
+from wagtail.images.blocks import ImageChooserBlock
 
 from streams import blocks
 
@@ -10,12 +14,16 @@ class FlexPage(Page):
     """Flexible page class."""
 
     template = "flex/flex_page.html"
+    embed = EmbedBlock
 
     content = StreamField(
         [
             ("title_and_text", blocks.TitleAndTextBlock()),
             ("full_richtext", blocks.RichTextBlock()),
             ("simple_richtext", blocks.SimpleRichTextBlock()),
+            ("embed_block", EmbedBlock()),
+            ("html_block", RawHTMLBlock()),
+            ("image_chooser_block", ImageChooserBlock()),
         ],
         null=True,
         blank=True
