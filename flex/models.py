@@ -35,7 +35,6 @@ class FlexPage(Page):
     subtitle = models.CharField(max_length=100, null=True, blank=True)
 
     content_panels = Page.content_panels + [
-        FieldPanel("subtitle"),
         StreamFieldPanel("content"),  
 
     ]
