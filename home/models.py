@@ -1,10 +1,32 @@
 from django.db import models
 
-from wagtail.core.models import Page
+from modelcluster.fields import ParentalKey
+
+from wagtail.core.models import Page, Orderable
 from wagtail.core.fields import RichTextField
-from wagtail.admin.edit_handlers import FieldPanel, PageChooserPanel
+from wagtail.admin.edit_handlers import FieldPanel, PageChooserPanel, InlinePanel, MultiFieldPanel 
 from wagtail.images.edit_handlers import ImageChooserPanel
     
+from streams import blocks
+
+class HomePageCarouselImages(Orderable):
+    """Between 1 and 5 images for the home page carousel."""
+    
+    page = ParentalKey("home.HomePage", related_name="carousel_images")
+    carousel_image = models.ForeignKey(
+        "wagtailimages.Image", 
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+"
+    )
+    # caption = models.CharField(max_length=225, blank=True, null=True)
+
+    panels = [
+        ImageChooserPanel("carousel_image"),
+        # FieldPanel("caption"),
+    ]
+
 class HomePage(Page):
 
     templates = "home/home_page.html"
@@ -28,11 +50,16 @@ class HomePage(Page):
 
   
     content_panels = Page.content_panels + [
-        FieldPanel('body', classname="full"),
-        FieldPanel("banner_title"),
-        FieldPanel("banner_subtitle"),
-        ImageChooserPanel("banner_image"),
-        PageChooserPanel("banner_cta")
+        MultiFieldPanel([
+            FieldPanel('body', classname="full"),
+            FieldPanel("banner_title"),
+            FieldPanel("banner_subtitle"),
+            ImageChooserPanel("banner_image"),
+            PageChooserPanel("banner_cta"),
+        ], heading="Banner Options"),
+        MultiFieldPanel([
+            InlinePanel("carousel_images", max_num=5, min_num=1,label="Image"),
+        ], heading="Carousel Images"),
     ]
 
     body = RichTextField(blank=True)

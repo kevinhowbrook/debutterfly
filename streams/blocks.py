@@ -10,7 +10,7 @@ class ImageChooserBlock(blocks.StructBlock):
         icon = "image"
         label = "Image"
 
-class RawHTMLBlock(blocks.StructBlock):
+class RawHTMLBlock(blocks.RawHTMLBlock):
     
     class Meta: #noqa
         template = "streams/embed_block.html"

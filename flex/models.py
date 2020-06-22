@@ -25,7 +25,7 @@ class FlexPage(Page):
             ("full_richtext", blocks.RichTextBlock()),
             ("simple_richtext", blocks.SimpleRichTextBlock()),
             ("embed_block", EmbedBlock()),
-            ("html_block", RawHTMLBlock()),
+            ("html_block", blocks.RawHTMLBlock()),
             ("image_chooser_block", ImageChooserBlock()),
         ],
         null=True,
