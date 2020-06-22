@@ -1,5 +1,7 @@
 <!doctype html>
 <html lang="en">
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 {% extends "base.html" %}
 {% load wagtailcore_tags wagtailimages_tags %}
@@ -11,11 +13,14 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
         <img class="d-block w-100" src='https://source.unsplash.com/1920x1080/?butterflies,butterfly' alt="First slide">
-        <div class="carousel-caption d-none d-md-block">
+        <div class="container">
+         <div class="carousel-caption d-none d-md-block">
             <h1>DE BUTTERFLIES</h1>
             <p>Transforming the mind</p>
+            <p><a class="btn btn-lg btn-dark" href="#" role="button">Sign up today</a></p>
         </div>
       </div>
+    </div>
       <div class="carousel-item">
         <img class="d-block w-100" src='https://source.unsplash.com/1920x1080/?zen,ocean' alt="Second slide">
         <div class="carousel-caption d-none d-md-block">
@@ -40,16 +45,36 @@
     </a>
   </div>
 
-    <!-- {% image self.banner_image fill-1280x1920 as img%} -->
-<!-- 
-    <div class="jumbotron" style="background-image: url('{{ img.url }}'); background-size: contain; color: #fff  ">
-        <h1 class="display-4">{{ self.banner_title }}</h1>
-        <div class = "lead">{{ self.banner_subtitle|richtext }}</div>
-        {% if self.banner_cta %}
-            <a class="btn btn-primary btn-lg" href="#" role="button">@todo</a>
-        {% endif %}
-        </div>
-        <a class="navbar-brand" href="#">Start Bootstrap</a> -->
+  <body>
+
+  <br> 
+  <div class="container ph3 ph5-n">
+
+    <div class="row">
+      <div class="col-lg-4 mx-auto">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+        <h2>Heading</h2>
+        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+        <h2>Heading</h2>
+        <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+        <h2>Heading</h2>
+        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+  </div>
+
+
+  </body>
+
 {% endblock %}
 
   </html> 

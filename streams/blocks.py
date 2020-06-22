@@ -2,6 +2,21 @@
 
 from wagtail.core import blocks
 
+
+class ImageChooserBlock(blocks.StructBlock):
+
+    class Meta: #noqa
+        template = "streams/image_chooser.html"
+        icon = "image"
+        label = "Image"
+
+class RawHTMLBlock(blocks.StructBlock):
+    
+    class Meta: #noqa
+        template = "streams/embed_block.html"
+        icon = "code"
+        label = "HTML"
+
 class TitleAndTextBlock(blocks.StructBlock):
     """Title and text and nothing else."""
 
