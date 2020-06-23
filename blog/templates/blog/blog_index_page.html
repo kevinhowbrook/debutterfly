@@ -3,16 +3,27 @@
   
 {% block content %}
 <div class="container ph3 ph5-n">
-    <h1>{{ page.title }}</h1>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Blog</h1>
+    </div>
+  </div>
+
+  
     <div class="intro">{{ page.intro|richtext }}</div>
     {% for post in page.get_children %}
-    <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="..." alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">{{ post.title }}</h5>
-        <p class="card-text">{{ post.date }}</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{ post.title }}</h5>
+              <p class="card-text">{{ post.date }}</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
       </div>
     </div>
+</div>
     {% endfor %}
 {% endblock %}
