@@ -7,7 +7,7 @@ This is a website based on Django and Wagtail CMS
 
 ## Installation
 
-Clone this repo"
+Clone this repo:
 ```
 git clone git@github.com:codersofcolour-sites/debutterfly.git
 ```
