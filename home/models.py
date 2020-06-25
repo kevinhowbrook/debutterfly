@@ -2,12 +2,14 @@ from django.db import models
 
 from modelcluster.fields import ParentalKey
 
+from wagtail.core.blocks import StructBlock, CharBlock, ListBlock, TextBlock
 from wagtail.core.models import Page, Orderable
 from wagtail.core.fields import RichTextField
-from wagtail.admin.edit_handlers import FieldPanel, PageChooserPanel, InlinePanel, MultiFieldPanel 
+from wagtail.admin.edit_handlers import FieldPanel, PageChooserPanel, InlinePanel, MultiFieldPanel, StreamFieldPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
-    
 from streams import blocks
+from wagtail.images.blocks import ImageChooserBlock
+
 
 class HomePageCarouselImages(Orderable):
     """Between 1 and 5 images for the home page carousel."""

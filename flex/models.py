@@ -10,7 +10,6 @@ from wagtail.images.blocks import ImageChooserBlock
 from wagtail.core import blocks
 
 
-
 from streams import blocks
 
 class FlexPage(Page):
@@ -20,13 +19,14 @@ class FlexPage(Page):
     # embed = EmbedBlock
 
     content = StreamField(
-        [
+        [   
             ("title_and_text", blocks.TitleAndTextBlock()),
             ("full_richtext", blocks.RichTextBlock()),
             ("simple_richtext", blocks.SimpleRichTextBlock()),
             ("embed_block", EmbedBlock()),
             ("html_block", blocks.RawHTMLBlock()),
             ("image_chooser_block", ImageChooserBlock()),
+            ("cards", blocks.CardBlock()),
         ],
         null=True,
         blank=True
@@ -36,7 +36,6 @@ class FlexPage(Page):
 
     content_panels = Page.content_panels + [
         StreamFieldPanel("content"),  
-
     ]
 
     class Meta: # noqa
